@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Amer Furniture | أثاث استلس فاخر</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--silver:#A0A0A0;--silver-light:#C8C8C8;--dark:#0A0A0A;--darker:#050505;--gray:#1A1A1A;--gray-light:#2A2A2A;--text:#E8E8E8;--text-muted:#888}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Cairo",sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--darker)}
+::-webkit-scrollbar-thumb{background:var(--silver);border-radius:3px}
+.top-bar{background:var(--darker);padding:8px 0;border-bottom:1px solid rgba(160,160,160,0.15);position:fixed;top:0;width:100%;z-index:1002}
+.top-bar-content{max-width:1400px;margin:0 auto;padding:0 15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.top-bar-left,.top-bar-right{display:flex;align-items:center;gap:15px}
+.top-bar a{color:var(--text-muted);text-decoration:none;font-size:12px;transition:color .3s;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.top-bar a:hover{color:var(--silver)}
+.top-bar .social-icons{display:flex;gap:10px}
+.top-bar .social-icons a{font-size:13px;width:28px;height:28px;border-radius:50%;background:var(--gray);display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-muted);text-decoration:none}
+.top-bar .social-icons a:hover{background:var(--silver);color:var(--dark);transform:translateY(-2px)}
+.header{position:fixed;top:44px;width:100%;background:rgba(10,10,10,0.98);backdrop-filter:blur(20px);z-index:1001;padding:10px 0;border-bottom:1px solid rgba(160,160,160,0.15)}
+.header-content{max-width:1400px;margin:0 auto;padding:0 15px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:18px;font-weight:900;color:var(--silver);letter-spacing:1px;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo i{font-size:22px}
+.nav-links{display:flex;gap:25px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--text);text-decoration:none;font-size:13px;font-weight:600;position:relative;padding:4px 0;transition:color .3s;white-space:nowrap}
+.nav-links a::after{content:"";position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--silver);transition:width .3s}
+.nav-links a:hover{color:var(--silver)}
+.nav-links a:hover::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:15px}
+.cart-icon{position:relative;cursor:pointer;font-size:18px;color:var(--silver);transition:transform .3s;display:flex;align-items:center}
+.cart-icon:hover{transform:scale(1.1)}
+.cart-count{position:absolute;top:-6px;right:-8px;background:var(--silver);color:var(--dark);font-size:10px;font-weight:900;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.mobile-menu-btn{display:none;font-size:20px;color:var(--silver);cursor:pointer;background:none;border:none;padding:5px}
+.hero{min-height:100vh;background:linear-gradient(180deg,var(--darker) 0%,var(--gray) 40%,var(--darker) 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 20px 60px}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 50%,rgba(160,160,160,0.05) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-block;padding:6px 20px;background:rgba(160,160,160,0.12);border:1px solid var(--silver);border-radius:50px;font-size:12px;color:var(--silver);margin-bottom:25px;letter-spacing:1px}
+.hero h1{font-size:52px;font-weight:900;margin-bottom:15px;color:var(--silver);line-height:1.2}
+.hero p{font-size:16px;color:var(--text-muted);margin-bottom:35px;line-height:1.8}
+.hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 30px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:none;font-family:"Cairo",sans-serif;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--silver) 0%,var(--silver-light) 100%);color:var(--dark);box-shadow:0 8px 25px rgba(160,160,160,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(160,160,160,0.4)}
+.btn-outline{background:transparent;color:var(--silver);border:2px solid var(--silver)}
+.btn-outline:hover{background:var(--silver);color:var(--dark);transform:translateY(-2px)}
+.categories{padding:80px 15px;max-width:1400px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:32px;font-weight:900;color:var(--silver);margin-bottom:10px}
+.section-title p{color:var(--text-muted);font-size:15px}
+.section-title .line{width:60px;height:3px;background:var(--silver);margin:15px auto 0;border-radius:2px}
+.categories-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px}
+.category-card{background:var(--gray);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .35s;border:1px solid transparent;position:relative}
+.category-card:hover{transform:translateY(-6px);border-color:var(--silver);box-shadow:0 15px 40px rgba(160,160,160,0.12)}
+.category-img{height:140px;background:linear-gradient(135deg,var(--gray-light) 0%,var(--gray) 100%);display:flex;align-items:center;justify-content:center;font-size:42px;color:var(--silver);position:relative;overflow:hidden}
+.category-img i{transition:transform .35s}
+.category-card:hover .category-img i{transform:scale(1.1)}
+.category-info{padding:18px 15px;text-align:center}
+.category-info h3{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--text)}
+.category-info p{color:var(--text-muted);font-size:11px;line-height:1.5}
+.category-info .arrow{margin-top:10px;color:var(--silver);font-size:14px;transition:transform .3s}
+.category-card:hover .arrow{transform:translateX(-4px)}
+.products-page{display:none;padding:110px 15px 60px;max-width:1400px;margin:0 auto;min-height:100vh}
+.products-page.active{display:block}
+.page-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:15px}
+.page-header h2{font-size:24px;color:var(--silver);display:flex;align-items:center;gap:10px}
+.back-btn{padding:8px 20px;background:var(--gray);color:var(--text);border:1px solid var(--gray-light);border-radius:50px;cursor:pointer;font-family:"Cairo",sans-serif;font-size:13px;font-weight:600;transition:all .3s;display:flex;align-items:center;gap:6px}
+.back-btn:hover{background:var(--silver);color:var(--dark);border-color:var(--silver)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.product-card{background:var(--gray);border-radius:16px;overflow:hidden;transition:all .35s;border:1px solid transparent;cursor:pointer}
+.product-card:hover{transform:translateY(-6px);border-color:var(--silver);box-shadow:0 12px 35px rgba(160,160,160,0.12)}
+.product-img{height:200px;background:linear-gradient(135deg,var(--gray-light) 0%,var(--gray) 100%);display:flex;align-items:center;justify-content:center;font-size:60px;color:var(--silver);position:relative;overflow:hidden}
+.product-img .badge{position:absolute;top:12px;right:12px;background:var(--silver);color:var(--dark);padding:4px 12px;border-radius:50px;font-size:11px;font-weight:700}
+.product-info{padding:18px}
+.product-info h3{font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.product-info .price{font-size:20px;font-weight:900;color:var(--silver);margin-bottom:10px}
+.product-info .colors-preview{display:flex;gap:6px;margin-bottom:12px;align-items:center}
+.color-dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--gray-light);cursor:pointer;transition:transform .2s}
+.color-dot:hover{transform:scale(1.2);border-color:var(--silver)}
+.product-info .btn-add{width:100%;padding:10px;background:var(--silver);color:var(--dark);border:none;border-radius:50px;font-family:"Cairo",sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:6px}
+.product-info .btn-add:hover{background:var(--silver-light);transform:scale(1.02)}
+.product-detail{display:none;padding:110px 15px 60px;max-width:1100px;margin:0 auto;min-height:100vh}
+.product-detail.active{display:block}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.detail-img{background:var(--gray);border-radius:16px;height:400px;display:flex;align-items:center;justify-content:center;font-size:100px;color:var(--silver);border:1px solid var(--gray-light);position:relative;overflow:hidden}
+.detail-img::after{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 40%,rgba(160,160,160,0.05) 50%,transparent 60%);animation:shine 3s infinite}
+@keyframes shine{0%{transform:translateX(-100%) rotate(45deg)}100%{transform:translateX(100%) rotate(45deg)}}
+.detail-info h2{font-size:26px;color:var(--silver);margin-bottom:8px}
+.detail-info .category-tag{display:inline-block;padding:4px 12px;background:rgba(160,160,160,0.12);border:1px solid var(--silver);border-radius:50px;font-size:12px;color:var(--silver);margin-bottom:15px}
+.detail-info .price{font-size:28px;font-weight:900;color:var(--silver);margin-bottom:20px}
+.detail-info .description{color:var(--text-muted);line-height:1.8;margin-bottom:20px;font-size:14px}
+.detail-info .features{background:var(--gray);padding:15px;border-radius:12px;margin-bottom:20px;border:1px solid var(--gray-light)}
+.detail-info .features li{list-style:none;padding:6px 0;color:var(--text);display:flex;align-items:center;gap:8px;font-size:13px}
+.detail-info .features li i{color:var(--silver);font-size:14px}
+.color-section{margin-bottom:20px}
+.color-section h4{font-size:15px;margin-bottom:12px;color:var(--text)}
+.color-options{display:flex;gap:12px;flex-wrap:wrap}
+.color-option{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:8px;border-radius:12px;transition:all .3s;border:2px solid transparent;min-width:55px}
+.color-option:hover,.color-option.selected{border-color:var(--silver);background:rgba(160,160,160,0.08)}
+.color-option .swatch{width:36px;height:36px;border-radius:50%;border:2px solid var(--gray-light);transition:all .3s;box-shadow:0 3px 10px rgba(0,0,0,0.3)}
+.color-option.selected .swatch{border-color:var(--silver);box-shadow:0 0 15px rgba(160,160,160,0.35)}
+.color-option span{font-size:11px;color:var(--text-muted)}
+.color-option.selected span{color:var(--silver);font-weight:700}
+.qty-section{display:flex;align-items:center;gap:15px;margin-bottom:20px}
+.qty-section h4{font-size:15px;color:var(--text)}
+.qty-control{display:flex;align-items:center;background:var(--gray);border-radius:50px;overflow:hidden;border:1px solid var(--gray-light)}
+.qty-control button{width:38px;height:38px;border:none;background:transparent;color:var(--silver);font-size:18px;cursor:pointer;transition:background .3s;font-family:"Cairo",sans-serif;display:flex;align-items:center;justify-content:center}
+.qty-control button:hover{background:rgba(160,160,160,0.15)}
+.qty-control input{width:50px;height:38px;border:none;background:transparent;color:var(--text);text-align:center;font-size:16px;font-weight:700;font-family:"Cairo",sans-serif}
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap}
+.detail-actions .btn{flex:1;min-width:160px;justify-content:center}
+.cart-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:3000;justify-content:center;align-items:flex-end;padding:0}
+.cart-overlay.active{display:flex}
+.cart-modal{background:var(--gray);border-radius:25px 25px 0 0;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;border:1px solid var(--gray-light);position:relative;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.cart-header{padding:20px;border-bottom:1px solid var(--gray-light);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--gray);z-index:10;border-radius:25px 25px 0 0}
+.cart-header h2{font-size:20px;color:var(--silver);display:flex;align-items:center;gap:8px}
+.close-cart{width:36px;height:36px;border-radius:50%;background:var(--gray-light);border:none;color:var(--text);font-size:16px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.close-cart:hover{background:var(--silver);color:var(--dark)}
+.cart-body{padding:20px}
+.cart-items{margin-bottom:20px}
+.cart-item{display:flex;gap:12px;padding:15px;background:var(--darker);border-radius:12px;margin-bottom:12px;align-items:center;border:1px solid var(--gray-light)}
+.cart-item-img{width:60px;height:60px;background:var(--gray);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--silver);flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-info h4{font-size:14px;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item-info .item-color{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+.cart-item-info .item-color .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex-shrink:0}
+.cart-item-qty{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cart-item-qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--gray-light);background:transparent;color:var(--silver);cursor:pointer;font-size:14px;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.cart-item-qty button:hover{background:var(--silver);color:var(--dark)}
+.cart-item-qty span{font-weight:700;min-width:24px;text-align:center;font-size:14px}
+.remove-item{color:#ff4444;cursor:pointer;font-size:16px;transition:transform .3s;padding:5px;flex-shrink:0}
+.remove-item:hover{transform:scale(1.15)}
+.cart-empty{text-align:center;padding:50px 20px;color:var(--text-muted)}
+.cart-empty i{font-size:50px;color:var(--gray-light);margin-bottom:15px}
+.customer-form{background:var(--darker);padding:20px;border-radius:16px;border:1px solid var(--gray-light)}
+.customer-form h3{font-size:18px;color:var(--silver);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;margin-bottom:6px;font-size:12px;color:var(--text-muted);font-weight:600}
+.form-group input,.form-group textarea{width:100%;padding:12px 15px;background:var(--gray);border:1px solid var(--gray-light);border-radius:10px;color:var(--text);font-family:"Cairo",sans-serif;font-size:14px;transition:all .3s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--silver);box-shadow:0 0 12px rgba(160,160,160,0.08)}
+.form-group textarea{min-height:80px;resize:vertical}
+.location-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--gray);border:1px dashed var(--silver);border-radius:10px;color:var(--silver);cursor:pointer;font-family:"Cairo",sans-serif;font-size:13px;font-weight:600;transition:all .3s;width:100%;justify-content:center}
+.location-btn:hover{background:rgba(160,160,160,0.08)}
+.cart-footer{padding:20px;border-top:1px solid var(--gray-light);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;position:sticky;bottom:0;background:var(--gray);z-index:10}
+.cart-total{font-size:18px;font-weight:900}
+.cart-total span{color:var(--silver)}
+.footer{background:var(--darker);padding:50px 15px 25px;border-top:1px solid var(--gray)}
+.footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;margin-bottom:30px}
+.footer-col h3{font-size:16px;color:var(--silver);margin-bottom:15px}
+.footer-col p{color:var(--text-muted);line-height:1.7;font-size:12px}
+.footer-col a{color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 0;transition:color .3s;font-size:12px}
+.footer-col a:hover{color:var(--silver)}
+.footer-col a i{color:var(--silver);width:18px;font-size:12px}
+.footer-social{display:flex;gap:10px;margin-top:15px}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text);transition:all .3s;text-decoration:none}
+.footer-social a:hover{background:var(--silver);color:var(--dark);transform:translateY(-2px)}
+.footer-bottom{text-align:center;padding-top:25px;border-top:1px solid var(--gray);color:var(--text-muted);font-size:11px}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--silver);color:var(--dark);padding:12px 25px;border-radius:50px;font-weight:700;font-size:13px;z-index:4000;opacity:0;transition:all .4s;display:flex;align-items:center;gap:8px;box-shadow:0 8px 25px rgba(160,160,160,0.35);white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+@media(max-width:992px){.detail-grid{grid-template-columns:1fr}.hero h1{font-size:38px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--dark);flex-direction:column;padding:15px;gap:10px;border-top:1px solid var(--gray);box-shadow:0 10px 30px rgba(0,0,0,0.5)}.nav-links.active{display:flex}.mobile-menu-btn{display:flex}}
+@media(max-width:768px){.hero{padding:130px 15px 40px;min-height:auto}.hero h1{font-size:28px}.hero p{font-size:13px}.hero-badge{font-size:10px;padding:5px 14px}.btn{padding:10px 22px;font-size:12px}.section-title h2{font-size:22px}.categories-grid{grid-template-columns:repeat(2,1fr);gap:10px}.category-img{height:110px;font-size:32px}.category-info h3{font-size:13px}.category-info p{font-size:10px}.products-grid{grid-template-columns:repeat(2,1fr);gap:10px}.product-img{height:140px;font-size:40px}.product-info{padding:12px}.product-info h3{font-size:13px}.product-info .price{font-size:15px}.detail-img{height:250px;font-size:60px}.detail-info h2{font-size:20px}.detail-info .price{font-size:22px}.color-option{padding:6px;min-width:48px}.color-option .swatch{width:30px;height:30px}.color-option span{font-size:10px}.footer-content{grid-template-columns:1fr;gap:20px}.cart-modal{max-width:100%}.top-bar-left,.top-bar-right{gap:10px}.top-bar a{font-size:11px}}
+@media(max-width:400px){.logo{font-size:15px}.logo i{font-size:18px}.categories-grid{grid-template-columns:repeat(2,1fr)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.animate-in{animation:fadeInUp .5s ease forwards;opacity:0}
+</style>
+<base target="_blank">
+</head>
+<body>
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="top-bar-left">
+<a href="tel:01013222044"><i class="fas fa-phone"></i> 01013222044</a>
+<a href="https://maps.app.goo.gl/BU3xbiHcEYP9x5LY7" target="_blank"><i class="fas fa-map-marker-alt"></i> موقعنا</a>
+</div>
+<div class="top-bar-right">
+<div class="social-icons">
+<a href="https://www.facebook.com/share/1CZVNXTJrU/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://instagram.com/amer.furniture" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://tiktok.com/@amerfurniture1" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://wa.me/201013222044" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+</div>
+</div>
+<header class="header" id="mainHeader">
+<div class="header-content">
+<div class="header-actions">
+<button class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+<div class="cart-icon" onclick="openCart()">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cartCount">0</span>
+</div>
+</div>
+<a href="#" class="logo" onclick="showHome();return false;">
+<i class="fas fa-gem"></i>
+Amer Furniture
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#" onclick="showHome();return false;">الرئيسية</a></li>
+<li><a href="#categories" onclick="scrollToCategories();return false;">الأقسام</a></li>
+<li><a href="#" onclick="openCart();return false;">السلة</a></li>
+<li><a href="tel:01013222044">اتصل بنا</a></li>
+</ul>
+</div>
+</header>
+<div id="homePage">
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">✨ فخامة لا تُضاهى</div>
+<h1>Amer Furniture</h1>
+<p>أثاث استلس 304 فاخر بتصاميم عصرية تلبي ذوقك الرفيع<br>ضمان مدى الحياة — توصيل لكل محافظات مصر</p>
+<div class="hero-btns">
+<a href="#categories" class="btn btn-primary" onclick="scrollToCategories();return false;"><i class="fas fa-th-large"></i> تصفح الأقسام</a>
+<a href="tel:01013222044" class="btn btn-outline"><i class="fas fa-phone"></i> اتصل الآن</a>
+</div>
+</div>
+</section>
+<section class="categories" id="categories">
+<div class="section-title">
+<h2>أقسامنا</h2>
+<p>اختر القسم المفضل واكتشف تشكيلتنا الفاخرة</p>
+<div class="line"></div>
+</div>
+<div class="categories-grid" id="categoriesGrid"></div>
+</section>
+</div>
+<div class="products-page" id="productsPage">
+<div class="page-header">
+<h2><i class="fas fa-couch"></i> <span id="categoryTitle"></span></h2>
+<button class="back-btn" onclick="showHome()"><i class="fas fa-arrow-right"></i> رجوع</button>
+</div>
+<div class="products-grid" id="productsGrid"></div>
+</div>
+<div class="product-detail" id="productDetail">
+<div class="page-header">
+<h2><i class="fas fa-info-circle"></i> تفاصيل المنتج</h2>
+<button class="back-btn" onclick="showProducts(currentCategory)"><i class="fas fa-arrow-right"></i> رجوع</button>
+</div>
+<div class="detail-grid" id="detailGrid"></div>
+</div>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+<div class="cart-modal" onclick="event.stopPropagation()">
+<div class="cart-header">
+<h2><i class="fas fa-shopping-bag"></i> سلة المشتريات</h2>
+<button class="close-cart" onclick="closeCart()"><i class="fas fa-times"></i></button>
+</div>
+<div class="cart-body">
+<div class="cart-items" id="cartItems"></div>
+<div class="customer-form" id="customerForm">
+<h3><i class="fas fa-user"></i> بيانات العميل</h3>
+<div class="form-group"><label>الاسم بالكامل *</label><input type="text" id="custName" placeholder="أدخل اسمك الكامل"></div>
+<div class="form-group"><label>رقم الموبايل *</label><input type="tel" id="custPhone" placeholder="مثال: 01013222044"></div>
+<div class="form-group"><label>العنوان بالتفصيل *</label><textarea id="custAddress" placeholder="المدينة، الحي، الشارع، رقم العمارة..."></textarea></div>
+<div class="form-group"><label>الموقع (GPS)</label><button class="location-btn" onclick="getLocation()"><i class="fas fa-map-marker-alt"></i> تحديد موقعي الحالي</button><p id="locationStatus" style="margin-top:8px;font-size:12px;color:var(--text-muted)"></p></div>
+</div>
+</div>
+<div class="cart-footer">
+<div class="cart-total">الإجمالي: <span id="cartTotal">0 ج.م</span></div>
+<button class="btn btn-primary" onclick="submitOrder()"><i class="fab fa-whatsapp"></i> تأكيد الطلب</button>
+</div>
+</div>
+</div>
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">تمت الإضافة للسلة!</span></div>
+<footer class="footer" id="mainFooter">
+<div class="footer-content">
+<div class="footer-col">
+<h3><i class="fas fa-gem"></i> Amer Furniture</h3>
+<p>متخصصون في تصميم وتصنيع الأثاث الفاخر من الاستلس 304 بأعلى معايير الجودة.</p>
+<div class="footer-social">
+<a href="https://www.facebook.com/share/1CZVNXTJrU/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://instagram.com/amer.furniture" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://tiktok.com/@amerfurniture1" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://wa.me/201013222044" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+<div class="footer-col">
+<h3>تواصل معنا</h3>
+<a href="tel:01013222044"><i class="fas fa-phone"></i> 01013222044</a>
+<a href="https://maps.app.goo.gl/BU3xbiHcEYP9x5LY7" target="_blank"><i class="fas fa-map-marker-alt"></i> موقعنا</a>
+<a href="https://wa.me/201013222044" target="_blank"><i class="fab fa-whatsapp"></i> واتساب</a>
+</div>
+<div class="footer-col">
+<h3>خدماتنا</h3>
+<a href="#"><i class="fas fa-truck"></i> توصيل لكل المحافظات</a>
+<a href="#"><i class="fas fa-shield-alt"></i> ضمان مدى الحياة</a>
+<a href="#"><i class="fas fa-paint-brush"></i> 5 ألوان متاحة</a>
+<a href="#"><i class="fas fa-cog"></i> استلس 304 أصلي</a>
+</div>
+<div class="footer-col">
+<h3>ساعات العمل</h3>
+<p>نعمل يومياً من 9 صباحاً حتى 10 مساءً</p>
+<p style="margin-top:10px">للطلبات والاستفسارات تواصل معنا.</p>
+</div>
+</div>
+<div class="footer-bottom"><p>© 2026 Amer Furniture — جميع الحقوق محفوظة</p></div>
+</footer>
+<script>
+var categories = [
+    {id:"console", name:"كونسول", icon:"fa-table", desc:"تصاميم فاخرة لمداخل المنزل"},
+    {id:"dining", name:"سفرة", icon:"fa-utensils", desc:"سفرات استلس أنيقة"},
+    {id:"chair", name:"كرسي", icon:"fa-chair", desc:"كراسي عصرية مريحة"},
+    {id:"partition", name:"برتشن", icon:"fa-border-all", desc:"فواصل أنيقة للمساحات"},
+    {id:"banquet", name:"بانكيت", icon:"fa-couch", desc:"بانكيت فاخر للضيوف"},
+    {id:"table", name:"طاولة", icon:"fa-table", desc:"طاولات متعددة الاستخدامات"},
+    {id:"tv-unit", name:"مكتبة شاشة", icon:"fa-tv", desc:"وحدات تلفزيون أنيقة"},
+    {id:"side-table", name:"طاولة جانبية", icon:"fa-coffee", desc:"طاولات جانبية عملية"},
+    {id:"swing", name:"أرجوحة", icon:"fa-wind", desc:"أرجوحات استلس فاخرة"}
+];
+var colors = [
+    {id:"black", name:"أسود", hex:"#1a1a1a"},
+    {id:"gold", name:"جولد", hex:"#A0A0A0"},
+    {id:"silver", name:"سيلفر", hex:"#C0C0C0"},
+    {id:"rose-gold", name:"روز جولد", hex:"#B76E79"},
+    {id:"champagne", name:"شامبين", hex:"#F7E7CE"}
+];
+var products = {};
+for (var ci = 0; ci < categories.length; ci++) {
+    var cat = categories[ci];
+    products[cat.id] = [];
+    for (var pi = 1; pi <= 6; pi++) {
+        products[cat.id].push({
+            id: cat.id + "-" + pi,
+            name: cat.name + " فاخر " + pi,
+            price: Math.floor(Math.random() * 8000) + 3000,
+            category: cat.name,
+            categoryId: cat.id,
+            icon: cat.icon
+        });
+    }
+}
+var cart = [];
+var currentCategory = null;
+var currentProduct = null;
+var selectedColor = "black";
+var selectedQty = 1;
+var userLocation = null;
+function init() {
+    renderCategories();
+    updateCartCount();
+}
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+} else {
+    init();
+}
+function renderCategories() {
+    var grid = document.getElementById("categoriesGrid");
+    if (!grid) return;
+    var html = "";
+    for (var i = 0; i < categories.length; i++) {
+        var cat = categories[i];
+        html += '<div class="category-card animate-in" style="animation-delay:' + (i * 0.08) + 's" onclick="showProducts(\'' + cat.id + '\')">' +
+            '<div class="category-img"><i class="fas ' + cat.icon + '"></i></div>' +
+            '<div class="category-info">' +
+                '<h3>' + cat.name + '</h3>' +
+                '<p>' + cat.desc + '</p>' +
+                '<div class="arrow"><i class="fas fa-arrow-left"></i></div>' +
+            '</div>' +
+        '</div>';
+    }
+    grid.innerHTML = html;
+}
+function showHome() {
+    document.getElementById("homePage").style.display = "block";
+    document.getElementById("productsPage").classList.remove("active");
+    document.getElementById("productDetail").classList.remove("active");
+    document.getElementById("mainFooter").style.display = "block";
+    window.scrollTo(0, 0);
+    closeMenu();
+}
+function showProducts(catId) {
+    currentCategory = catId;
+    var cat = null;
+    for (var i = 0; i < categories.length; i++) {
+        if (categories[i].id === catId) { cat = categories[i]; break; }
+    }
+    document.getElementById("categoryTitle").textContent = cat.name;
+    var grid = document.getElementById("productsGrid");
+    var prods = products[catId];
+    var html = "";
+    for (var i = 0; i < prods.length; i++) {
+        var p = prods[i];
+        html += '<div class="product-card animate-in" style="animation-delay:' + (i * 0.06) + 's" onclick="showProductDetail(\'' + p.id + '\')">' +
+            '<div class="product-img">' +
+                '<span class="badge">' + cat.name + '</span>' +
+                '<i class="fas ' + p.icon + '"></i>' +
+            '</div>' +
+            '<div class="product-info">' +
+                '<h3>' + p.name + '</h3>' +
+                '<div class="price">' + p.price.toLocaleString() + ' ج.م</div>' +
+                '<div class="colors-preview">' +
+                    '<div class="color-dot" style="background:#1a1a1a"></div>' +
+                    '<div class="color-dot" style="background:#A0A0A0"></div>' +
+                    '<div class="color-dot" style="background:#C0C0C0"></div>' +
+                    '<span style="color:var(--text-muted);font-size:11px">+2</span>' +
+                '</div>' +
+                '<button class="btn-add" onclick="event.stopPropagation();addToCart(\'' + p.id + '\',\'black\',1)"><i class="fas fa-cart-plus"></i> أضف للسلة</button>' +
+            '</div>' +
+        '</div>';
+    }
+    grid.innerHTML = html;
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("productsPage").classList.add("active");
+    document.getElementById("productDetail").classList.remove("active");
+    document.getElementById("mainFooter").style.display = "block";
+    window.scrollTo(0, 0);
+    closeMenu();
+}
+function showProductDetail(prodId) {
+    var allProds = [];
+    for (var key in products) {
+        for (var j = 0; j < products[key].length; j++) {
+            allProds.push(products[key][j]);
+        }
+    }
+    var p = null;
+    for (var i = 0; i < allProds.length; i++) {
+        if (allProds[i].id === prodId) { p = allProds[i]; break; }
+    }
+    currentProduct = p;
+    selectedColor = "black";
+    selectedQty = 1;
+    var grid = document.getElementById("detailGrid");
+    var colorsHtml = "";
+    for (var i = 0; i < colors.length; i++) {
+        var c = colors[i];
+        colorsHtml += '<div class="color-option ' + (c.id === selectedColor ? "selected" : "") + '" onclick="selectColor(\'' + c.id + '\')" data-color="' + c.id + '"><div class="swatch" style="background:' + c.hex + '"></div><span>' + c.name + '</span></div>';
+    }
+    grid.innerHTML =
+        '<div class="detail-img"><i class="fas ' + p.icon + '"></i></div>' +
+        '<div class="detail-info">' +
+            '<span class="category-tag">' + p.category + '</span>' +
+            '<h2>' + p.name + '</h2>' +
+            '<div class="price">' + p.price.toLocaleString() + ' ج.م</div>' +
+            '<p class="description">منتج فاخر من استلس 304 عالي الجودة، مصمم بأحدث التقنيات ليضيف لمسة من الفخامة لمنزلك. مقاوم للصدأ والتآكل، سهل التنظيف، ويحافظ على بريقه لسنوات طويلة.</p>' +
+            '<ul class="features">' +
+                '<li><i class="fas fa-check-circle"></i> مصنوع من استلس تين 304 أصلي</li>' +
+                '<li><i class="fas fa-check-circle"></i> ضمان مدى الحياة</li>' +
+                '<li><i class="fas fa-check-circle"></i> 5 ألوان متاحة</li>' +
+                '<li><i class="fas fa-check-circle"></i> يوجد توصيل لكل محافظات مصر</li>' +
+                '<li><i class="fas fa-check-circle"></i> مقاوم للصدأ والتآكل</li>' +
+            '</ul>' +
+            '<div class="color-section"><h4>اختر اللون:</h4><div class="color-options">' + colorsHtml + '</div></div>' +
+            '<div class="qty-section"><h4>الكمية:</h4><div class="qty-control"><button onclick="changeQty(-1)">-</button><input type="text" id="qtyInput" value="1" readonly><button onclick="changeQty(1)">+</button></div></div>' +
+            '<div class="detail-actions"><button class="btn btn-primary" onclick="addCurrentToCart()"><i class="fas fa-cart-plus"></i> أضف للسلة</button><button class="btn btn-outline" onclick="orderNow()"><i class="fab fa-whatsapp"></i> اطلب الآن</button></div>' +
+        '</div>';
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("productsPage").classList.remove("active");
+    document.getElementById("productDetail").classList.add("active");
+    document.getElementById("mainFooter").style.display = "none";
+    window.scrollTo(0, 0);
+    closeMenu();
+}
+function selectColor(colorId) {
+    selectedColor = colorId;
+    var opts = document.querySelectorAll(".color-option");
+    for (var i = 0; i < opts.length; i++) {
+        if (opts[i].getAttribute("data-color") === colorId) {
+            opts[i].classList.add("selected");
+        } else {
+            opts[i].classList.remove("selected");
+        }
+    }
+}
+function changeQty(delta) {
+    selectedQty = Math.max(1, selectedQty + delta);
+    var inp = document.getElementById("qtyInput");
+    if (inp) inp.value = selectedQty;
+}
+function addCurrentToCart() { addToCart(currentProduct.id, selectedColor, selectedQty); }
+function orderNow() { addToCart(currentProduct.id, selectedColor, selectedQty); openCart(); }
+function addToCart(prodId, colorId, qty) {
+    var allProds = [];
+    for (var key in products) {
+        for (var j = 0; j < products[key].length; j++) { allProds.push(products[key][j]); }
+    }
+    var p = null;
+    for (var i = 0; i < allProds.length; i++) { if (allProds[i].id === prodId) { p = allProds[i]; break; } }
+    var color = null;
+    for (var i = 0; i < colors.length; i++) { if (colors[i].id === colorId) { color = colors[i]; break; } }
+    var existing = null;
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].id === prodId && cart[i].color === colorId) { existing = cart[i]; break; }
+    }
+    if (existing) { existing.qty += qty; }
+    else {
+        cart.push({ id: p.id, name: p.name, price: p.price, color: colorId, colorName: color.name, colorHex: color.hex, qty: qty, icon: p.icon });
+    }
+    updateCartCount();
+    showToast("تمت الإضافة للسلة بنجاح!");
+}
+function updateCartCount() {
+    var count = 0;
+    for (var i = 0; i < cart.length; i++) { count += cart[i].qty; }
+    document.getElementById("cartCount").textContent = count;
+}
+function openCart() {
+    renderCartItems();
+    document.getElementById("cartOverlay").classList.add("active");
+    document.body.style.overflow = "hidden";
+    closeMenu();
+}
+function closeCart(e) {
+    if (!e || e.target === document.getElementById("cartOverlay")) {
+        document.getElementById("cartOverlay").classList.remove("active");
+        document.body.style.overflow = "";
+    }
+}
+function renderCartItems() {
+    var container = document.getElementById("cartItems");
+    if (cart.length === 0) {
+        container.innerHTML = '<div class="cart-empty"><i class="fas fa-shopping-basket"></i><h3>السلة فارغة</h3><p>أضف بعض المنتجات لبدء الطلب</p></div>';
+        document.getElementById("cartTotal").textContent = "0 ج.م";
+        return;
+    }
+    var total = 0;
+    var html = "";
+    for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        total += item.price * item.qty;
+        html += '<div class="cart-item">' +
+            '<div class="cart-item-img"><i class="fas ' + item.icon + '"></i></div>' +
+            '<div class="cart-item-info">' +
+                '<h4>' + item.name + '</h4>' +
+                '<div class="item-color"><span class="dot" style="background:' + item.colorHex + '"></span>' + item.colorName + '</div>' +
+                '<div style="color:var(--silver);font-weight:700;margin-top:4px;font-size:13px">' + item.price.toLocaleString() + ' ج.م</div>' +
+            '</div>' +
+            '<div class="cart-item-qty">' +
+                '<button onclick="updateCartQty(' + i + ',-1)">-</button>' +
+                '<span>' + item.qty + '</span>' +
+                '<button onclick="updateCartQty(' + i + ',1)">+</button>' +
+            '</div>' +
+            '<div class="remove-item" onclick="removeFromCart(' + i + ')"><i class="fas fa-trash-alt"></i></div>' +
+        '</div>';
+    }
+    container.innerHTML = html;
+    document.getElementById("cartTotal").textContent = total.toLocaleString() + " ج.م";
+}
+function updateCartQty(index, delta) {
+    cart[index].qty = Math.max(1, cart[index].qty + delta);
+    updateCartCount();
+    renderCartItems();
+}
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartCount();
+    renderCartItems();
+}
+function getLocation() {
+    var status = document.getElementById("locationStatus");
+    if (navigator.geolocation) {
+        status.textContent = "جاري تحديد الموقع...";
+        navigator.geolocation.getCurrentPosition(
+            function(pos) {
+                userLocation = pos.coords.latitude + "," + pos.coords.longitude;
+                status.innerHTML = '<span style="color:var(--silver)"><i class="fas fa-check-circle"></i> تم تحديد الموقع</span>';
+            },
+            function(err) { status.textContent = "تعذر تحديد الموقع، أدخل العنوان يدوياً"; }
+        );
+    } else { status.textContent = "المتصفح لا يدعم تحديد الموقع"; }
+}
+function submitOrder() {
+    if (cart.length === 0) { showToast("السلة فارغة!"); return; }
+    var name = document.getElementById("custName").value.trim();
+    var phone = document.getElementById("custPhone").value.trim();
+    var address = document.getElementById("custAddress").value.trim();
+    if (!name || !phone || !address) { showToast("يرجى ملء جميع البيانات المطلوبة"); return; }
+    var total = 0;
+    var itemsText = "";
+    for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        total += item.price * item.qty;
+        itemsText += "• " + item.name + "\n  اللون: " + item.colorName + "\n  الكمية: " + item.qty + "\n  السعر: " + (item.price * item.qty).toLocaleString() + " ج.م";
+        if (i < cart.length - 1) itemsText += "\n\n";
+    }
+    var message = "🛒 *طلب جديد من Amer Furniture*\n\n" +
+        "👤 *العميل:* " + name + "\n" +
+        "📱 *الموبايل:* " + phone + "\n" +
+        "📍 *العنوان:* " + address + "\n";
+    if (userLocation) { message += "🗺️ *الموقع:* https://maps.google.com/?q=" + userLocation + "\n"; }
+    message += "\n📦 *المنتجات:*\n\n" + itemsText + "\n\n" +
+        "💰 *الإجمالي:* " + total.toLocaleString() + " ج.م\n\n" +
+        "✅ مصنوع من استلس تين 304 — ضمان مدى الحياة\n" +
+        "🚚 يوجد توصيل لكل محافظات مصر";
+    var whatsappUrl = "https://wa.me/201013222044?text=" + encodeURIComponent(message);
+    window.open(whatsappUrl, "_blank");
+    showToast("تم فتح واتساب لإرسال الطلب!");
+    cart = [];
+    updateCartCount();
+    renderCartItems();
+    document.getElementById("custName").value = "";
+    document.getElementById("custPhone").value = "";
+    document.getElementById("custAddress").value = "";
+    document.getElementById("locationStatus").textContent = "";
+    userLocation = null;
+}
+function showToast(msg) {
+    var toast = document.getElementById("toast");
+    document.getElementById("toastMsg").textContent = msg;
+    toast.classList.add("show");
+    setTimeout(function() { toast.classList.remove("show"); }, 3000);
+}
+function scrollToCategories() {
+    var el = document.getElementById("categories");
+    if (el) el.scrollIntoView({behavior: "smooth"});
+}
+function toggleMenu() {
+    var nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+}
+function closeMenu() {
+    var nav = document.getElementById("navLinks");
+    nav.classList.remove("active");
+}
+window.addEventListener("scroll", function() {
+    var header = document.querySelector(".header");
+    if (window.scrollY > 100) {
+        header.style.padding = "8px 0";
+        header.style.background = "rgba(5,5,5,0.98)";
+    } else {
+        header.style.padding = "10px 0";
+        header.style.background = "rgba(10,10,10,0.95)";
+    }
+});
+</script>
+</body>
+</html>
